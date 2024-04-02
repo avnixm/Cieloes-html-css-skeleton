@@ -1,1 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+::-webkit-scrollbar{
+    display:none;
+  }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
+
+:root{
+    --text: #060705;
+    --background: #f5f8f4;
+    --primary: #79b751;
+    --secondary: #aade89;
+    --accent: #89e251;
+    --big-font: 3.5rem;
+    --h2-font: 2.5rem;
+    --p-font:1.5rem;
+}
+
+*::selection{
+    background-color: var(--secondary);
+    color: var(--text);
+}
+
+body{
+    color:var(--text);
+    background: var(--background);
+}
+
+button:hover {
+    color: var(--primary);
+    background-color: #ddf4ff;
+    border-color: #248627bd;
+}
+  
+button:active {
+    border-bottom: 2px solid var(--accent);
+}
+
+
+
+   /********************* main profile dv *******************/
+    .profilemain {
+        background: #f5f8f4;
+        height: 350px;
+        width: 450px;
+        position: absolute;
+        margin-left: 450px;
+        margin-top: 20px;
+        border-bottom: 2px solid grey; 
+    }
+
+    .avatardv{
+        position: relative;
+        background-color: rgba(197, 197, 197, 0.781);
+        height: 200px;
+        width: 430px;
+        border-radius: 20px;
+        overflow: hidden;
+      /*  border: 2px solid grey; */
+        
+    }
+
+    .selected-avatar{
+        position: absolute;
+        width: 300px;
+        height: 200px;
+        margin-left: 65px;
+        margin-top: 17px;
+        
+    }
+
+    #editbtn{
+        position: absolute;
+        
+    }
+
+
+    #name
+     {
+         margin-top: 20px;
+    }
+
+    #username{
+        margin-top: 10px;
+        font:1.5rem;
+    }
+
+    #datejoin {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+
+    /****************** Profile Right  dv *****************/
+    .profileright {
+        background: #f5f8f4;
+        height: 350px;
+        width: 405px;
+        position: absolute;
+        margin-left: 66%;
+        right: 10px;
+        margin-top: 20px;
+     border-bottom: 2px solid grey;   
+    }
+/*** points top right dv *********/
+    .points {
+        background-color: #f5f8f4;
+        height: 50px;
+        width: 450px;
+       
+        
+    }
+
+    .hearts {
+        background-image: url(images/icons/hearts.svg);
+        background-repeat: no-repeat;
+        height: 35px;
+        width: 35px;
+       
+        margin: 1px;
+        margin-left: 290px;
+        position: absolute;
+    }
+
+    .exp {
+        background-image: url(images/icons/exp.svg);
+        background-repeat: no-repeat;
+        height: 33px;
+        width: 25px;
+       
+        margin: 9px;
+        margin-left: 100px;
+    }
+
+    /***** baba ng points ****/
+    .socials{
+        background-color: #f5f8f4;
+        height: 250px;
+        width: 405px;
+        border: 2px solid grey;
+        margin-top: 5px;
+        border-radius: 20px;
+    }
+
+    
+/********************* statistics div***********************/
+    .profiledown{
+        background-color: #f5f8f4;
+        position: absolute;
+        right: 10px;
+        height: 310px;
+        width: 890px;
+        margin-top: 380px;
+        border-bottom: 2px solid grey;
+        
+        
+    }
+
+    .stst{
+        position: absolute;
+       margin-top: 20px;
+    }
+    #statistics{
+        font-weight: 900;
+    }
+
+
+    .daystreak {
+        background-color: #f5f8f4;
+        position: absolute;
+        height: 100px;
+        width: 410px;
+        margin-top: 20px;
+        border-radius: 20px;
+        border: 2px solid grey;
+        margin-left: 20px;
+       
+    }
+
+    .xp {
+        background-color: #f5f8f4;
+        height: 100px;
+        width: 410px;
+        border-radius: 20px;
+        margin-top: 20px;
+        margin-left: 450px;
+        border: 2px solid grey;
+    }
+/******************** exp dv***********/
+    #TEP{
+        margin-left: 100px;
+        margin-top: 10px;
+        
+    }
+
+    #TEPdb{
+        margin-left: 80px;
+        margin-top: -65px;
+    }
+
+    .exp-sts {
+        background-image: url(images/icons/exp.svg);
+        background-repeat: no-repeat;
+        height: 33px;
+        width: 25px;
+       
+        margin: 9px;
+        margin-left: 20px;
+        margin-top: 20px;
+        
+    }
+
+    /************* streak dv****************/
+
+    .streak-sts {
+        
+
+        background-image: url(images/icons/firestreaksml.jpg);
+        background-repeat: no-repeat;
+       
+        height: 35px;
+        width: 25px;
+       
+        margin: 9px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    #tsp {
+        position: absolute;
+       margin-left: 130px;
+       margin-top: 40px;
+    }
+
+    #tspdb{
+        margin-left: 100px;
+        margin-top: -40px;
+    }
+
+
+
+/****************** ranks / leaderboards ***************/
+    .rank {
+        background-color: #f5f8f4;
+        height: 100px;
+        width: 410px;
+        border-radius: 20px;
+        margin-top: 20px;
+        margin-left: 230px;
+        border: 2px solid grey;
+    }
+
+    .rkdv{
+        
+        background-image: url(images/icons/leaderboardcolor.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+        height: 35px;
+        width: 35px;
+       
+        margin: 9px;
+        margin-left: 20px;
+        margin-top: 20px;
+        
+    }
+    
+    #ctr {
+        position: absolute;
+       margin-left: 130px;
+       margin-top: 40px;
+    }
+
+/*********************** Account Div ***********************/
+    .account {
+        background-color:#f5f8f4;
+        height: 400px;
+        width: 890px;
+        position: absolute;
+        right: 10px;
+        top: 700px;
+        
+    }
+
+    #acct{
+        font-weight: 900;
+    }
+
+
+
+    #p-username{
+    background-color: var(--background);
+    border: none;
+    width: 50%;
+    border-radius: 1rem;
+    padding: 10px;
+    border: 1px solid grey;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-left: 260px;
+    font-size: 20px;
+    
+}
+
+#p-name{
+    background-color: var(--background);
+    border: none;
+    width: 50%;
+    border-radius: 1rem;
+    padding: 10px;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    margin-left: 260px;
+    font-size: 20px;
+}
+
+#p-email{
+    background-color: var(--background);
+    border: none;
+    width: 50%;
+    border-radius: 1rem;
+    padding: 10px;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    margin-left: 260px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.lbusername{
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 45px;
+}
+
+.lbname{
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 110px;
+}
+
+.lbemail{
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 180px;
+}
+
+#namelb{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#savebtn{
+    position: absolute;
+    color: #fff;
+    background-color: var(--primary);
+    width: 100px;
+    border-radius: 16px;
+    border: 1px solid var(--accent);
+    border-bottom: 4px solid #248627bd;
+    margin: 10px;
+    transition: all 0.1s;
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+    margin-top: -190px;
+   
+  
+}
+
+#logoutbtn{
+    color: #fff;
+    background-color: var(--primary);
+    position: absolute;
+    width: 100px;
+    border-radius: 16px;
+    border: 1px solid var(--accent);
+    border-bottom: 4px solid #248627bd;
+    transition: all 0.1s;
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 430px;
+    margin-top:20px;
+    position: absolute;
+    
+}
+
+.btndv{
+    background-color: aqua;
+}
+
+
+/************ avatar ***************/
+
+/* CSS for avatar selection */
+.avatar-option {
+    width: 100px;
+    height: 100px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin: 10px;
+}
+.avatar-option.selected {
+    border-color: blue;
+}
+.selected-avatar img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* CSS for modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
