@@ -64,7 +64,7 @@ button:active {
 
     .avatardv{
         position: relative;
-        background-color: rgba(197, 197, 197, 0.781);
+        background-color: rgb(175, 175, 175);
         height: 200px;
         width: 430px;
         border-radius: 20px;
