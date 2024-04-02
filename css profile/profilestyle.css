@@ -83,9 +83,44 @@ button:active {
     }
 
     #editbtn{
+        
+        font-weight: 500;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: medium;
         position: absolute;
+        color: #fff;
+        background-color: var(--primary);
+        width: 50px;
+        border-radius: 16px;
+        border: 1px solid var(--accent);
+        border-bottom: 4px solid #248627bd;
+        margin: 10px;
+        transition: all 0.1s;
+        padding: 10px 10px;
+        cursor: pointer;
+        border-radius: 1rem;
+        justify-content: center;
+        align-items: center;
+         margin-left: 370px;
+         margin-top: 13px;
+   
+   
         
     }
+
+   /* #edit{
+        position: absolute;
+        color: rgb(0, 0, 0);;
+        width: 30px;
+        border-radius: 16px;
+        transition: all 0.1s;
+        padding: 15px 15px;
+        cursor: pointer;
+        border-radius: 1rem;
+        
+       border: 2px solid black;
+            
+        }*/
 
 
     #name
