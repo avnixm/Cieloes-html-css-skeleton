@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>SIGN UP</title>
+</head>
+<body>
+    <header>
+        <img src="images/wordwiselogo.png" class="logo-image">
+        <a href="index.html" class="logo-text">CIELOES</a>
+    </header>
+
+    <section class="signup">
+        <div class="signup-modal" id="signup-modal">
+            <div class="signup-container">
+                <div class="close-btn" onclick="redirectToPageIndex()">&times;</div>
+
+            <script>
+                function redirectToPageIndex() {
+                    window.location.href = 'index.html';
+                }
+            </script>
+                <div class="signup-details">
+                    <h2>Sign Up</h2>
+                    <input type="text" id="s-username" placeholder="Username">
+                    <input type="text" id="s-email" placeholder="Email">
+                    <input type="password" id="s-password" placeholder="Password">
+                    <button class="signup-btn" id="signup-btn">SIGN UP</button>
+                    <p>Already have an account? <a onclick="redirectToPageLogin()" id="login-link" style="color: blue; cursor: pointer;">Log In</a></p>
+                    
+                    <script>
+                        function redirectToPageLogin() {
+                            window.location.href = 'login.html';
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+</section>
+</body>
+</html>
