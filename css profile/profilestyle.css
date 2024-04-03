@@ -7,10 +7,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
     list-style: none;
     text-decoration: none;
+    font-family: 'Nunito', sans-serif;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -50,31 +49,34 @@ button:active {
 }
 
 
-
    /********************* main profile dv *******************/
+  
     .profilemain {
-        background: #f5f8f4;
-        height: 350px;
-        width: 450px;
         position: absolute;
-        margin-left: 450px;
+        background: var(--background);
+        width: 70%;
+        position: absolute;
+        margin-left: 120px;
         margin-top: 20px;
-        border-bottom: 2px solid grey; 
+        border-bottom: 3px solid grey;
+        
+       
     }
 
-    .avatardv{
+     .avatardv{
         position: relative;
         background-color: rgb(175, 175, 175);
         height: 200px;
         width: 430px;
         border-radius: 20px;
         overflow: hidden;
+        
       /*  border: 2px solid grey; */
         
     }
 
     .selected-avatar{
-        position: absolute;
+        
         width: 300px;
         height: 200px;
         margin-left: 65px;
@@ -82,7 +84,7 @@ button:active {
         
     }
 
-    #editbtn{
+    .editbtn{
         
         font-weight: 500;
         font-family:Arial, Helvetica, sans-serif;
@@ -102,12 +104,20 @@ button:active {
         justify-content: center;
         align-items: center;
          margin-left: 370px;
-         margin-top: 13px;
-   
-   
-        
+         margin-top: 13px;  
     }
 
+    .editbtn:hover {
+        color: var(--text);
+        background-color: var(--secondary);
+        border-color: #4c8128;
+    }
+
+    .editbtn:active {
+        border-bottom: 2px solid #4c8128;
+    }
+
+    
    /* #edit{
         position: absolute;
         color: rgb(0, 0, 0);;
@@ -123,139 +133,82 @@ button:active {
         }*/
 
 
-    #name
+   .profilemain #name
      {
+        
          margin-top: 20px;
     }
 
-    #username{
+   .profilemain #username{
+       
         margin-top: 10px;
         font:1.5rem;
     }
 
-    #datejoin {
+   .profilemain #datejoin {
+
+        position: relative;
         margin-top: 20px;
         font-weight: bold;
     }
 
 
-    /****************** Profile Right  dv *****************/
-    .profileright {
-        background: #f5f8f4;
-        height: 350px;
-        width: 405px;
-        position: absolute;
-        margin-left: 66%;
-        right: 10px;
-        margin-top: 20px;
-     border-bottom: 2px solid grey;   
-    }
+   
 /*** points top right dv *********/
-    .points {
-        background-color: #f5f8f4;
-        height: 50px;
-        width: 450px;
-       
-        
-    }
+.xp_hearts1 {
+    position: absolute;
+    top: -4%;
+    left: 70%;
+    display: flex;
+    align-items: center;
+    margin: 3% 3%;
+}
 
-    .hearts {
-        background-image: url(images/icons/hearts.svg);
-        background-repeat: no-repeat;
-        height: 35px;
-        width: 35px;
-       
-        margin: 1px;
-        margin-left: 290px;
-        position: absolute;
-    }
+.xp_hearts1 .xp1 {
+    margin-right: 60px;
+    
+}
 
-    .exp {
-        background-image: url(images/icons/exp.svg);
-        background-repeat: no-repeat;
-        height: 33px;
-        width: 25px;
-       
-        margin: 9px;
-        margin-left: 100px;
-    }
 
-    /***** baba ng points ****/
-    .socials{
-        background-color: #f5f8f4;
-        height: 250px;
-        width: 405px;
-        border: 2px solid grey;
-        margin-top: 5px;
-        border-radius: 20px;
-    }
+.xp_hearts1 .xp1,
+.xp_hearts1 .hearts1 {
+    display: flex;
+    align-items: center;
+}
+
+.xp_hearts1 .xp1 img,
+.xp_hearts1 .hearts1 img {
+    height: 30px;
+    margin-right: 15px;
+}
+
 
     
 /********************* statistics div***********************/
-    .profiledown{
-        background-color: #f5f8f4;
-        position: absolute;
-        right: 10px;
-        height: 310px;
-        width: 890px;
-        margin-top: 380px;
-        border-bottom: 2px solid grey;
-        
-        
-    }
+    
 
-    .stst{
-        position: absolute;
-       margin-top: 20px;
-    }
+   
     #statistics{
+        position: absolute;
         font-weight: 900;
+        font-size: medium;
+        top: 14%;
+        left: 50%
+        
     }
 
 
     .daystreak {
-        background-color: #f5f8f4;
         position: absolute;
-        height: 100px;
-        width: 410px;
-        margin-top: 20px;
-        border-radius: 20px;
-        border: 2px solid grey;
-        margin-left: 20px;
-       
-    }
-
-    .xp {
         background-color: #f5f8f4;
         height: 100px;
         width: 410px;
         border-radius: 20px;
-        margin-top: 20px;
-        margin-left: 450px;
         border: 2px solid grey;
-    }
-/******************** exp dv***********/
-    #TEP{
-        margin-left: 100px;
-        margin-top: 10px;
+        top: 23%;
+        left: 50%;
         
-    }
-
-    #TEPdb{
-        margin-left: 80px;
-        margin-top: -65px;
-    }
-
-    .exp-sts {
-        background-image: url(images/icons/exp.svg);
-        background-repeat: no-repeat;
-        height: 33px;
-        width: 25px;
        
-        margin: 9px;
-        margin-left: 20px;
-        margin-top: 20px;
-        
     }
 
     /************* streak dv****************/
@@ -263,7 +216,7 @@ button:active {
     .streak-sts {
         
 
-        background-image: url(images/icons/firestreaksml.jpg);
+        background-image: url(/images/icons/firestreaksml.jpg);
         background-repeat: no-repeat;
        
         height: 35px;
@@ -289,18 +242,18 @@ button:active {
 
 /****************** ranks / leaderboards ***************/
     .rank {
+        position: absolute;
         background-color: #f5f8f4;
         height: 100px;
         width: 410px;
         border-radius: 20px;
-        margin-top: 20px;
-        margin-left: 230px;
         border: 2px solid grey;
+        left: 50%;
     }
 
     .rkdv{
         
-        background-image: url(images/icons/leaderboardcolor.png);
+        background-image: url(/images/icons/leaderboardcolor.png);
         background-repeat: no-repeat;
         background-size: cover;
        
@@ -326,7 +279,7 @@ button:active {
         width: 890px;
         position: absolute;
         right: 10px;
-        top: 700px;
+        top: 110%;
         
     }
 
@@ -416,9 +369,20 @@ button:active {
     align-items: center;
     margin-left: 40px;
     margin-top: -190px;
-   
-  
+ 
 }
+
+#savebtn:hover {
+    color: var(--text);
+    background-color: var(--secondary);
+    border-color: #4c8128;
+}
+
+#savebtn:active {
+    border-bottom: 2px solid #4c8128;
+}
+
+
 
 #logoutbtn{
     color: #fff;
@@ -440,9 +404,18 @@ button:active {
     
 }
 
-.btndv{
-    background-color: aqua;
+#logoutbtn:hover {
+    color: var(--text);
+    background-color: var(--secondary);
+    border-color: #4c8128;
 }
+
+#logoutbtn:active {
+    border-bottom: 2px solid #4c8128;
+}
+
+
+
 
 
 /************ avatar ***************/
@@ -480,4 +453,39 @@ button:active {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#closebtn{
+
+    font-weight: 500;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: medium;
+    
+    color: #fff;
+    background-color: var(--primary);
+    width: 50px;
+    border-radius: 16px;
+    border: 1px solid var(--accent);
+    border-bottom: 4px solid #248627bd;
+    margin: 10px;
+    transition: all 0.1s;
+    padding: 10px 5px;
+    cursor: pointer;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    
+     
+    
+    
+}
+
+#closebtn:hover {
+    color: var(--text);
+    background-color: var(--secondary);
+    border-color: #4c8128;
+}
+
+#closebtn:active {
+    border-bottom: 2px solid #4c8128;
 }
