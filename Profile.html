@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="x-icon" href="images/faks.png">
-    <link rel="stylesheet" href="profilestyle.css">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="css profile/profilestyle.css">
+    <link rel="stylesheet" href="css/homepage.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <title>Profile</title>
 </head>
 <body>
 
-    <div class="wrapper">
+<div class="wrapper">
         <div class="sidebar">
             <div class="logo-container">
                 <img src="images/wordwiselogo.png" alt="Logo">
@@ -19,37 +19,45 @@
                 <hr>
             </div>
             <ul>
-                <li class="active"><a href="index.html"><i class="fas fa-book"></i> Learn</a></li>
+                <li class="active"><a href="dashboard.html"><i class="fas fa-book"></i> Learn</a></li>
                 <li><a href="#"><i class="fas fa-pen"></i> Practice</a></li>
                 <li><a href="#" id="leaderboard-btn"><i class="fas fa-trophy"></i> Leaderboards</a></li>
                 <li><a href="#"><i class="fas fa-shopping-cart"></i> Shop</a></li>
                 <li><a href="Profile.html"><i class="fas fa-user"></i> Profile</a></li>
             </ul> 
         </div>
-    <div class="profilemain">
-        <div class="avatardv">
-            
-            <button id="editbtn" onclick="toggleAvatarForm()">edit</button>
-            <div class="selected-avatar" id="selectedAvatar">
-               
-                <img src="images/avatarboy1.png" alt="Selected Avatar">
+
+    <div class="main_content">
+        <div class="profilemain">
+            <div class="avatardv">
+                
+                <button class="editbtn" onclick="toggleAvatarForm()">edit</button>
+                <div class="selected-avatar" id="selectedAvatar">
+                   
+                    <img src="images/avatarboy1.png" alt="Selected Avatar">
+                </div>
             </div>
-        </div>
-        <h2 id="name">name</h2>
-        <p id="username">username</p>
-        <p id="datejoin">joined date </p>
-    </div>
 
-    <div class="profileright">
-        <div class="points">
-            <div class="hearts"></div>
-            <div class="exp"></div>
-        </div>
-        <div class="socials"></div>
-    </div>
+            <div class="rank">
+                <div class="rkdv">
+                    <p id="ctr">Current Rank</p>
+                </div>
+            </div>
+            <h2 id="name">name</h2>
+            <p id="username">username</p>
+            <p id="datejoin">joined date </p>
 
-    <div class="profiledown">
-        <div class="stst">
+            <div class="xp_hearts1">
+                <div class="xp1">
+                    <img src="images/icons/exp.svg">
+                    <h2>1100</h2>
+                </div>
+                <div class="hearts1">
+                    <img src="images/icons/hearts.svg">
+                    <h2>3</h2>
+                </div>
+            </div>
+
             <h2 id="statistics">Statistics</h2>
             <div class="daystreak">
                 <div class="streak-sts">
@@ -57,47 +65,63 @@
                 </div>
                 <p id="tspdb">get from database</p>
             </div>
-            <div class="xp">
-                <div class="exp-sts"></div>
-                <p id="TEP">Total experience points</p>
-                <p id="TEPdb">get from database</p>
+
+            <div class="account">
+                <h2 id="acct">Account</h2>
+                <div class="lbusername"> <label id="usernameLabel">Username</label></div>
+                <div class="lbname"> <label id="nameLabel">Name</label></div>
+                <div class="lbemail"> <label id="emailLabel">Email</label></div>
+                   
+                <input type="text" id="p-username">
+                <input type="text" id="p-name">
+                <input type="text" id="p-email">
+                <button id="savebtn">Save</button>
+                    
+                <form action="#" method="post"> 
+                    <button id="logoutbtn">Log out</button>
+                </form>
             </div>
-            <div class="rank">
-                <div class="rkdv">
-                    <p id="ctr">Current Rank</p>
+        
+            <div class="modal-overlay" id="modalOverlay">
+                <div class="modal-content">
+                    <h2>Select Avatar</h2>
+                    <form id="avatarForm" onsubmit="return updateAvatar()">
+                        <div id="avatarOptions">
+                            <img src="images/avatarboy1.png" alt="Fox" class="avatar-option selected" onclick="selectOption(this)">
+                            <img src="images/avatarboy2.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <img src="images/avatarboy3.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <img src="images/avatarboy4.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <img src="images/avatarboy5.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <img src="images/avatargirl1.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <img src="images/avatargirl2.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <img src="images/avatargirl3.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <img src="images/avatargirl4.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <img src="images/avatargirl5.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
+                            <button id="closebtn" type="submit">close</button>
+                        </div>
+                        
+                    </form>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="account">
-        <h2 id="acct">Account</h2>
-        <div class="lbusername"> <label id="usernameLabel">Username</label></div>
-        <div class="lbname"> <label id="nameLabel">Name</label></div>
-        <div class="lbemail"> <label id="emailLabel">Email</label></div>
-           
-        <input type="text" id="p-username">
-        <input type="text" id="p-name">
-        <input type="text" id="p-email">
-        <button id="savebtn">Save</button>
             
-        <form action="includes/logout.inc.php" method="post"> 
-            <button id="logoutbtn">Log out</button>
-        </form>
-    </div>
-
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <h2>Select Avatar</h2>
-            <form id="avatarForm" onsubmit="return updateAvatar()">
-                <div id="avatarOptions">
-                    <img src="images/avatarboy1.png" alt="Fox" class="avatar-option selected" onclick="selectOption(this)">
-                    <img src="images/avatargirl2.png" alt="CAIEL" class="avatar-option" onclick="selectOption(this)">
-                </div>
-                <button type="submit">Update Avatar</button>
-            </form>
+            
         </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>        
+
+</div>   
+
+
 
     <script>
 
