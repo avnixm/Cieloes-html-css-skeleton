@@ -49,108 +49,108 @@ button:active {
 }
 
 
-   /********************* main profile dv *******************/
-  
-    .profilemain {
-        position: absolute;
-        background: var(--background);
-        width: 70%;
-        position: absolute;
-        margin-left: 120px;
-        margin-top: 20px;
-        border-bottom: 3px solid grey;
-        
-       
-    }
+/********************* main profile dv *******************/
 
-     .avatardv{
-        position: relative;
-        background-color: rgb(175, 175, 175);
-        height: 200px;
-        width: 430px;
-        border-radius: 20px;
-        overflow: hidden;
-        
-      /*  border: 2px solid grey; */
-        
-    }
-
-    .selected-avatar{
-        
-        width: 300px;
-        height: 200px;
-        margin-left: 65px;
-        margin-top: 17px;
-        
-    }
-
-    .editbtn{
-        
-        font-weight: 500;
-        font-family:Arial, Helvetica, sans-serif;
-        font-size: medium;
-        position: absolute;
-        color: #fff;
-        background-color: var(--primary);
-        width: 50px;
-        border-radius: 16px;
-        border: 1px solid var(--accent);
-        border-bottom: 4px solid #248627bd;
-        margin: 10px;
-        transition: all 0.1s;
-        padding: 10px 10px;
-        cursor: pointer;
-        border-radius: 1rem;
-        justify-content: center;
-        align-items: center;
-         margin-left: 370px;
-         margin-top: 13px;  
-    }
-
-    .editbtn:hover {
-        color: var(--text);
-        background-color: var(--secondary);
-        border-color: #4c8128;
-    }
-
-    .editbtn:active {
-        border-bottom: 2px solid #4c8128;
-    }
-
+.profilemain {
+    position: absolute;
+    background: var(--background);
+    width: 70%;
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 20px;
+    border-bottom: 3px solid grey;
     
-   /* #edit{
-        position: absolute;
-        color: rgb(0, 0, 0);;
-        width: 30px;
-        border-radius: 16px;
-        transition: all 0.1s;
-        padding: 15px 15px;
-        cursor: pointer;
-        border-radius: 1rem;
+    
+}
+
+    .avatardv{
+    position: relative;
+    background-color: rgb(175, 175, 175);
+    height: 200px;
+    width: 430px;
+    border-radius: 20px;
+    overflow: hidden;
+    
+    /*  border: 2px solid grey; */
+    
+}
+
+.selected-avatar{
+    
+    width: 300px;
+    height: 200px;
+    margin-left: 65px;
+    margin-top: 17px;
+    
+}
+
+.editbtn{
+    
+    font-weight: 500;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: medium;
+    position: absolute;
+    color: #fff;
+    background-color: var(--primary);
+    width: 50px;
+    border-radius: 16px;
+    border: 1px solid var(--accent);
+    border-bottom: 4px solid #248627bd;
+    margin: 10px;
+    transition: all 0.1s;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+        margin-left: 370px;
+        margin-top: 13px;  
+}
+
+.editbtn:hover {
+    color: var(--text);
+    background-color: var(--secondary);
+    border-color: #4c8128;
+}
+
+.editbtn:active {
+    border-bottom: 2px solid #4c8128;
+}
+
+
+/* #edit{
+    position: absolute;
+    color: rgb(0, 0, 0);;
+    width: 30px;
+    border-radius: 16px;
+    transition: all 0.1s;
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 1rem;
+    
+    border: 2px solid black;
         
-       border: 2px solid black;
-            
-        }*/
+    }*/
 
 
-   .profilemain #name
-     {
-        
-         margin-top: 20px;
-    }
-
-   .profilemain #username{
-       
-        margin-top: 10px;
-        font:1.5rem;
-    }
-
-   .profilemain #datejoin {
-
-        position: relative;
+.profilemain #name
+    {
+    
         margin-top: 20px;
-        font-weight: bold;
-    }
+}
+
+.profilemain #username{
+    
+    margin-top: 10px;
+    font:1.5rem;
+}
+
+.profilemain #datejoin {
+
+    position: relative;
+    margin-top: 20px;
+    font-weight: bold;
+}
 
 
    
@@ -184,123 +184,111 @@ button:active {
 
 
     
-/********************* statistics div***********************/
+/********************* statistics div***********************/ 
+#statistics{
+    position: absolute;
+    font-weight: 900;
+    font-size: medium;
+    top: 14%;
+    left: 50%
+}
+
+.daystreak {
+    position: absolute;
+    background-color: #f5f8f4;
+    height: 100px;
+    width: 410px;
+    border-radius: 20px;
+    border: 2px solid grey;
+    top: 23%;
+    left: 50%; 
+}
+
+/************* streak dv****************/
+
+.streak-sts {
+    background-image: url(/images/icons/firestreaksml.jpg);
+    background-repeat: no-repeat;
     
+    height: 35px;
+    width: 25px;
+    
+    margin: 9px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
 
-   
-    #statistics{
-        position: absolute;
-        font-weight: 900;
-        font-size: medium;
-        top: 14%;
-        left: 50%
-        
-    }
+#tsp {
+    position: absolute;
+    margin-left: 130px;
+    margin-top: 40px;
+}
 
-
-    .daystreak {
-        position: absolute;
-        background-color: #f5f8f4;
-        height: 100px;
-        width: 410px;
-        border-radius: 20px;
-        border: 2px solid grey;
-        top: 23%;
-        left: 50%;
-        
-       
-    }
-
-    /************* streak dv****************/
-
-    .streak-sts {
-        
-
-        background-image: url(/images/icons/firestreaksml.jpg);
-        background-repeat: no-repeat;
-       
-        height: 35px;
-        width: 25px;
-       
-        margin: 9px;
-        margin-left: 20px;
-        margin-top: 20px;
-    }
-
-    #tsp {
-        position: absolute;
-       margin-left: 130px;
-       margin-top: 40px;
-    }
-
-    #tspdb{
-        margin-left: 100px;
-        margin-top: -40px;
-    }
-
-
+#tspdb{
+    margin-left: 100px;
+    margin-top: -40px;
+}
 
 /****************** ranks / leaderboards ***************/
-    .rank {
-        position: absolute;
-        background-color: #f5f8f4;
-        height: 100px;
-        width: 410px;
-        border-radius: 20px;
-        border: 2px solid grey;
-        left: 50%;
-    }
+.rank {
+    position: absolute;
+    background-color: #f5f8f4;
+    height: 100px;
+    width: 410px;
+    border-radius: 20px;
+    border: 2px solid grey;
+    left: 50%;
+}
 
-    .rkdv{
-        
-        background-image: url(/images/icons/leaderboardcolor.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-       
-        height: 35px;
-        width: 35px;
-       
-        margin: 9px;
-        margin-left: 20px;
-        margin-top: 20px;
-        
-    }
+.rkdv{
     
-    #ctr {
-        position: absolute;
-       margin-left: 130px;
-       margin-top: 40px;
-    }
+    background-image: url(/images/icons/leaderboardcolor.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    height: 35px;
+    width: 35px;
+    
+    margin: 9px;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+}
+
+#ctr {
+    position: absolute;
+    margin-left: 130px;
+    margin-top: 40px;
+}
 
 /*********************** Account Div ***********************/
-    .account {
-        background-color:#f5f8f4;
-        height: 400px;
-        width: 890px;
-        position: absolute;
-        right: 10px;
-        top: 110%;
-        
-    }
+.account {
+    background-color:#f5f8f4;
+    height: 400px;
+    width: 890px;
+    position: absolute;
+    right: 10px;
+    top: 110%;
+}
 
-    #acct{
-        font-weight: 900;
-    }
-
+#acct{
+    font-weight: 900;
+}
 
 
-    #p-username{
-    background-color: var(--background);
-    border: none;
-    width: 50%;
-    border-radius: 1rem;
-    padding: 10px;
-    border: 1px solid grey;
-    margin-bottom: 20px;
-    margin-top: 30px;
-    margin-left: 260px;
-    font-size: 20px;
-    
+
+#p-username{
+background-color: var(--background);
+border: none;
+width: 50%;
+border-radius: 1rem;
+padding: 10px;
+border: 1px solid grey;
+margin-bottom: 20px;
+margin-top: 30px;
+margin-left: 260px;
+font-size: 20px;
+
 }
 
 #p-name{
@@ -369,7 +357,6 @@ button:active {
     align-items: center;
     margin-left: 40px;
     margin-top: -190px;
- 
 }
 
 #savebtn:hover {
@@ -381,8 +368,6 @@ button:active {
 #savebtn:active {
     border-bottom: 2px solid #4c8128;
 }
-
-
 
 #logoutbtn{
     color: #fff;
@@ -400,8 +385,7 @@ button:active {
     align-items: center;
     margin-left: 430px;
     margin-top:20px;
-    position: absolute;
-    
+    position: absolute; 
 }
 
 #logoutbtn:hover {
@@ -413,10 +397,6 @@ button:active {
 #logoutbtn:active {
     border-bottom: 2px solid #4c8128;
 }
-
-
-
-
 
 /************ avatar ***************/
 
@@ -456,11 +436,9 @@ button:active {
 }
 
 #closebtn{
-
     font-weight: 500;
     font-family:Arial, Helvetica, sans-serif;
     font-size: medium;
-    
     color: #fff;
     background-color: var(--primary);
     width: 50px;
@@ -474,10 +452,6 @@ button:active {
     border-radius: 1rem;
     justify-content: center;
     align-items: center;
-    
-     
-    
-    
 }
 
 #closebtn:hover {

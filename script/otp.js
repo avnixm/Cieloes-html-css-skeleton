@@ -68,7 +68,7 @@ function sendOTPSignUp(){
     <p><strong>OTP:</strong> ${otp_val}</p>
     <p>If you haven't registered for a CIELOES account recently, you can disregard this email. Rest assured, your account security is our top priority.</p>
     <p>Thank you for choosing CIELOES. If you have any questions or concerns, feel free to reach out to our support team.</p>
-    <p>Best regards,</p><br>
+    <p>Best regards,</p>
     CIELOES Support Team</p>
     `;
 
