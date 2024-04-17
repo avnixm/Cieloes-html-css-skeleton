@@ -170,6 +170,19 @@ if (selectedAvatarUrl) {
             var modal = document.getElementById('modalOverlay');
             modal.style.display = 'none'; // Hide the modal overlay
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+    var lis = document.querySelectorAll('.wrapper .sidebar ul li');
+    lis.forEach(function(li) {
+        li.addEventListener('click', function() {
+            lis.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
+    });
+});
+
     </script>
 </body>
 </html>
