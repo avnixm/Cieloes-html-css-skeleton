@@ -37,6 +37,24 @@
                     function redirectToPageSignUp() {
                         window.location.href = 'signup.html';
                     }
+                   /* Captcha */
+        document.addEventListener("DOMContentLoaded", function() {
+            var loginForm = document.getElementById("login-form");
+
+            loginForm.addEventListener("submit", function(event) {
+                event.preventDefault(); 
+
+                var captchaResponse = grecaptcha.getResponse(); 
+
+                if (captchaResponse === "") {
+                    alert("Please complete the CAPTCHA.");
+                    return; 
+                }
+
+              
+                loginForm.submit(); 
+            });
+        });
 
                 </script>
             </div>
