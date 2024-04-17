@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>LOG IN</title>
 </head>
@@ -23,22 +24,44 @@
                     window.location.href = 'index.html';
                 }
             </script>
-
-            <div class="login-details">
-                <h2>Log In</h2>
+           
+                    <div class="login-details">
+                    <h2>Log In</h2>
                     <input type="text" id="username" name="username" placeholder="Email or Username">
                     <input type="password" id="password" name="password" placeholder="Password">
+                    <div class="g-recaptcha" data-sitekey="6LcA170pAAAAAN3wE7LozfCHpFe48bbgdz24Y5po"></div>
                     <div class="otpverify" style="display: none;">
                         <input type="text" id="otp-text" class="otp-text" name="otp-text" placeholder="Enter OTP">
                         <button type="submit" class="otp-btn" id="otp-btn">VERIFY OTP</button>
                     </div>
                     <h5 id="OTPlabel" style="color: #79b751; display: none;">OTP sent to the email!</h5>
                     <button onclick="sendOTP()" class="login-btn">LOG IN</button>
-                <p>Don't have an account? <a onclick="redirectToPageSignUp()" id="signup-link" style="color: blue; cursor: pointer;">Sign Up</a></p>
-                <script>
+                 <p>Don't have an account? <a onclick="redirectToPageSignUp()" id="signup-link" style="color: blue; cursor: pointer;">Sign Up</a></p>
+              
+              
+              <script>
                     function redirectToPageSignUp() {
                         window.location.href = 'signup.html';
                     }
+                   /* Captcha */
+        document.addEventListener("DOMContentLoaded", function() {
+            var loginForm = document.getElementById("login-form");
+
+            loginForm.addEventListener("submit", function(event) {
+                event.preventDefault(); 
+
+                var captchaResponse = grecaptcha.getResponse(); 
+
+                if (captchaResponse === "") {
+                    alert("Please complete the CAPTCHA.");
+                    return; 
+                }
+
+              
+                loginForm.submit(); 
+            });
+        });
+
                 </script>
             </div>
         </div>
