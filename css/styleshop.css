@@ -1,0 +1,347 @@
+/* Root Variables */
+:root {
+    --text: #060705;
+    --background: #f5f8f4;
+    --primary: #79b751;
+    --secondary: #aade89;
+    --accent: #89e251;
+    --big-font: 3.5rem;
+    --h2-font: 2.5rem;
+    --p-font: 1.5rem;
+}
+
+::-webkit-scrollbar{
+    display:none;
+  }
+
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: var(--background);
+}
+
+/* Sidebar */
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar {
+    width: 17%;
+    height: 100%;
+    background: var(--background);
+    padding: 35px 0px;
+    position: fixed;
+    top: 0px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .sidebar .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.wrapper .sidebar .logo-container img {
+    height: 35px;
+    margin-right: 10px;
+}
+
+.wrapper .sidebar .logo-container h2,
+.wrapper .sidebar h2 {
+    color: var(--primary);
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 1000;
+    font-size: 2;
+}
+
+.wrapper .sidebar ul {
+    padding: 0;
+}
+
+.wrapper .sidebar ul li {
+    font-size: 17px;
+    color: #fff;
+    background-color: var(--background);
+    min-width: 90%;
+    margin: 10px;
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.wrapper .sidebar ul li a {
+    color: #545454;
+    font-weight: 600;
+    margin-left: 20%;
+}
+
+.wrapper .sidebar ul li a .fas {
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover {
+    background-color: #e8e8e8;
+}
+
+.wrapper .sidebar ul li:hover a {
+    color: #545454;
+}
+
+.wrapper .sidebar ul li.active {
+    border-color: var(--primary);
+    border: 3px solid var(--primary);
+    color: var(--primary);
+}
+
+/* Main Content */
+.wrapper .main_content {
+    width: 85%;
+    margin-left: 240px;
+}
+
+.wrapper .main_content .lesson_container {
+    overflow: auto;
+    margin-left: 5%;
+    margin-top: 10%;
+    color: #fff;
+    line-height: 25px;
+    background-color: #cdfeaf;
+    width: 65%;
+    padding: 2%;
+    border-radius: 1.5rem;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.307);
+    max-height: 75vh;
+}
+
+.wrapper .main_content .lesson_container::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    width: 75%;
+    padding: 20px;
+    background-color: #f2f2f2; /* Light gray background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1); /* Box shadow for a slight elevation */
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
+.content h2 {
+    color: #333; /* Text color */
+}
+
+.content p {
+    color: #666; /* Text color */
+}
+.gem {
+     width: 20px; /* Adjust the width of the heart */
+    height: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align the heart vertically */
+}
+.gems-container {
+    position: absolute;
+    top: 30px;
+    right: 190px;
+    display: flex;
+    align-items: center;
+}
+
+.gems {
+    width: 18px;
+    height: auto;
+}
+
+.gems-text {
+    margin-left: 5px;
+    font-size: 20px;
+    color:var(--text);
+}
+
+.hart-container {
+    position: absolute;
+    top: 30px;
+    right: 110px;
+    display: flex;
+    align-items: center;
+}
+
+.hart {
+    width: 25px;
+    height: auto;
+}
+
+.hart-text {
+    margin-left: 5px;
+    font-size: 20px;
+    color: var(--text);
+}
+
+.heart {
+    margin-top: 10px;
+    width: 100px; /* Adjust the width of the heart */
+    height: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align the heart vertically */
+}
+
+.heart-container {
+    display: inline-block; /* Display heart and text in line */
+    vertical-align: middle; /* Align vertically */
+}
+
+   .heart-container h3 {
+     margin-top: -70px;
+    margin-left: 120px; /* Adjust the space between the heart and the paragraph */
+    vertical-align: middle; /* Align vertically */
+}
+
+.heart-container p {
+    margin-top: 10px;
+    margin-left: 120px; /* Adjust the space between the heart and the paragraph */
+    vertical-align: middle; /* Align vertically */
+}
+.custom-button {
+    background-color: transparent;
+    border-color: lightgray;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    justify-content: flex-end;
+    margin-left: 800px; /* I-update ang margin para ilipat pataas */
+    margin-top: -100px; /* I-update ang margin para ilipat pataas */
+    position: relative; /* Posisyon ng relative */
+    top: -50px; /* I-adjust ang pataas na offset */
+}
+
+.custom-button .icon {
+    margin-left: 5px;
+    color: darkgray;
+}
+.custom-button1 {
+    background-color: transparent;
+    border-color: lightgray;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    justify-content: flex-end;
+    margin-left: 820px; /* I-update ang margin para ilipat pataas */
+    margin-top: -100px; /* I-update ang margin para ilipat pataas */
+    position: relative; /* Posisyon ng relative */
+    top: -50px; /* I-adjust ang pataas na offset */
+}
+
+.custom-button1 .icon {
+    margin-left: 5px;
+    color: darkviolet;
+}
+.custom-button2 {
+    background-color: transparent;
+    border-color: lightgray;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    justify-content: flex-end;
+    margin-left: 800px; /* I-update ang margin para ilipat pataas */
+    margin-top: -100px; /* I-update ang margin para ilipat pataas */
+    position: relative; /* Posisyon ng relative */
+    top: -50px; /* I-adjust ang pataas na offset */
+}
+
+.custom-button2 .icon {
+    margin-left: 5px;
+    color: #0096FF;
+}
+.custom-button3 {
+    background-color: transparent;
+    border-color: lightgray;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    justify-content: flex-end;
+    margin-left: 800px; /* I-update ang margin para ilipat pataas */
+    margin-top: -100px; /* I-update ang margin para ilipat pataas */
+    position: relative; /* Posisyon ng relative */
+    top: -50px; /* I-adjust ang pataas na offset */
+}
+
+.custom-button3 .icon {
+    margin-left: 5px;
+    color: #0096FF;
+}
+
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+

@@ -352,7 +352,7 @@ section .login{
 
 .signup-container{
     position: relative;
-    top: 10%;
+    top: 5%;
     background-color: var(--background);
     border-radius: 5px;
     padding: 30px 50px;
@@ -1035,3 +1035,40 @@ footer{
 .flex_container h2 {
     text-align: center;
 }
+
+.otpverify {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    width: 50%; 
+}
+
+.otpverify input {
+    flex: 1; 
+    margin-right: 10px; 
+    background-color: var(--background);
+    border: none;
+    width: 70%;
+    border-radius: 1rem;
+    padding: 15px 15px;
+    box-shadow: 0 3px 0 0 rgba(44, 101, 30, 0.721);
+    margin-bottom: 20px;
+}
+
+#otp-btn {
+    min-width: 30%; 
+    color: #fff;
+    background-color: var(--primary);
+    border-radius: 16px;
+    border: 1px solid var(--accent);
+    border-bottom: 4px solid #248627bd;
+    transition: all 0.1s;
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 1rem;
+    display: inline-flex; /* Add this line */
+    justify-content: center;
+    align-items: center;
+}
+

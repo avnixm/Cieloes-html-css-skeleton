@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>LOG IN</title>
 </head>
 <body>
@@ -27,7 +28,12 @@
                 <h2>Log In</h2>
                     <input type="text" id="username" name="username" placeholder="Email or Username">
                     <input type="password" id="password" name="password" placeholder="Password">
-                    <button type="submit" class="login-btn" id="login-btn">LOG IN</button>
+                    <div class="otpverify" style="display: none;">
+                        <input type="text" id="otp-text" class="otp-text" name="otp-text" placeholder="Enter OTP">
+                        <button type="submit" class="otp-btn" id="otp-btn">VERIFY OTP</button>
+                    </div>
+                    <h5 id="OTPlabel" style="color: #79b751; display: none;">OTP sent to the email!</h5>
+                    <button onclick="sendOTP()" class="login-btn">LOG IN</button>
                 <p>Don't have an account? <a onclick="redirectToPageSignUp()" id="signup-link" style="color: blue; cursor: pointer;">Sign Up</a></p>
                 <script>
                     function redirectToPageSignUp() {
@@ -39,4 +45,5 @@
     </div>
 </section>
 </body>
+<script src="script/otp.js"></script>
 </html>
