@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>LOG IN</title>
 </head>
 <body>
@@ -22,17 +23,21 @@
                     window.location.href = 'index.html';
                 }
             </script>
-
-            <div class="login-details">
-                <h2>Log In</h2>
+           
+                    <div class="login-details">
+                    <h2>Log In</h2>
                     <input type="text" id="username" name="username" placeholder="Email or Username">
                     <input type="password" id="password" name="password" placeholder="Password">
+                    <div class="g-recaptcha" data-sitekey="6LcA170pAAAAAN3wE7LozfCHpFe48bbgdz24Y5po"></div>
                     <button type="submit" class="login-btn" id="login-btn">LOG IN</button>
-                <p>Don't have an account? <a onclick="redirectToPageSignUp()" id="signup-link" style="color: blue; cursor: pointer;">Sign Up</a></p>
-                <script>
+                 <p>Don't have an account? <a onclick="redirectToPageSignUp()" id="signup-link" style="color: blue; cursor: pointer;">Sign Up</a></p>
+              
+              
+              <script>
                     function redirectToPageSignUp() {
                         window.location.href = 'signup.html';
                     }
+
                 </script>
             </div>
         </div>
