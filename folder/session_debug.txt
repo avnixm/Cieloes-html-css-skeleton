@@ -1,6 +1,0 @@
-Array
-(
-    [last_regeneration] => 1716693214
-    [user_id] => 6
-    [user_username] => BALNEG
-)
