@@ -6,9 +6,9 @@
     <link rel="shortcut icon" type="x-icon" href="images/faks.png">
     <link rel="stylesheet" href="css/homepage.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-
     <div class="wrapper">
         <div class="sidebar">
             <div class="logo-container">
@@ -34,8 +34,8 @@
                 <div class="spaceholder">  
                 </div>
                 <div class="text_container">
-                <h2>Section 1</h2>
-                <h2>Use pronouns, make questions.</h2>
+                    <h2>Section 1</h2>
+                    <h2>Use pronouns, make questions.</h2>
                 </div>
                 <div class="flex_container">
                     <div class="unit_box">
@@ -53,8 +53,8 @@
 
                 <div>
                     <div class="text_container_2">
-                    <h2>Section 2</h2>
-                    <h2>Identify the predicate, specify its use in the house..</h2>
+                        <h2>Section 2</h2>
+                        <h2>Identify the predicate, specify its use in the house..</h2>
                     </div>
                     <div class="flex_container">
                         <div class="unit_box">
@@ -76,20 +76,21 @@
         <div class="xp_hearts">
             <div class="xp">
                 <img src="images/icons/exp.svg">
-                <h2>1100</h2>
+                <h2 id="xp-count">0</h2>
             </div>
             <div class="hearts">
                 <img src="images/icons/hearts.svg">
-                <h2>3</h2>
+                <h2 id="hearts-count">0</h2>
             </div>
         </div>
+        
         <div class="container">
             <h3 style="text-align: center; padding: 0px 0px 15px 0px;">#WORD-OF-THE-DAY</h3>
             <div class="word" id="word"></div>
             <div class="audio-controls">
                 <i class="fas fa-volume-up" id="playButton"></i>
                 <audio id="audio" style="display: none;">
-                  <source src="" type="audio/mpeg">
+                    <source src="" type="audio/mpeg">
                 </audio>
             </div>
             <div class="details" id="details">
@@ -101,17 +102,34 @@
                 <p id="synonymsList"></p>
                 <p class="italic">Examples:</p>
                 <ul id="examples"></ul>
-              </div>              
-          </div>
+            </div>              
+        </div>
     </div>
+    
     <script src="script/script.js"></script>
-      <script src="script/word_of_the_day.js"></script>  
+    <script src="script/word_of_the_day.js"></script>  
     
     <script>
-        document.getElementById('btn1').addEventListener('click', function() {
-            window.location.href = 'lessons/lesson2.html';
+        $(document).ready(function() {
+            // Fetch user's current gems and hearts
+            $.ajax({
+                url: 'get_user_data.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        $("#xp-count").text(response.gems);
+                        $("#hearts-count").text(response.hearts);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error: " + status + ": " + error);
+                    alert("An error occurred while fetching user data. Please try again.");
+                }
+            });
         });
     </script>
-    
 </body>
 </html>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>LOG IN</title>
 </head>
@@ -25,82 +24,86 @@
                 }
             </script>
            
-    <div class="login-details">
-        <h2>Log In</h2>
-        <input type="text" id="username" name="username" placeholder="Email or Username">
-        <input type="password" id="password" name="password" placeholder="Password">
-        <div class="g-recaptcha" data-sitekey="6LcA170pAAAAAN3wE7LozfCHpFe48bbgdz24Y5po"></div>
-        <div class="otpverify" style="display: none;">
-            <input type="text" id="otp-text" class="otp-text" name="otp-text" placeholder="Enter OTP">
-            <button type="submit" class="otp-btn" id="otp-btn">VERIFY OTP</button>
-        </div>
-    <h5 id="OTPlabel" style="color: #79b751; display: none;">OTP sent to the email!</h5>
-    <button onclick="sendOTP()" class="login-btn">LOG IN</button>
-         <button onclick="loginWithGoogle()" class="google-login-btn">
-        <img src="google_logo.png" alt="Google Logo" class="google-logo"> Login with Google</button>  
-    <p>Don't have an account? <a onclick="redirectToPageSignUp()" id="signup-link" style="color: blue; cursor: pointer;">Sign Up</a></p>
-              
+            <div class="login-details">
+                <h2>Log In</h2>
+                <input type="text" id="username" name="username" placeholder="Email or Username">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <div class="otpverify" style="display: none;">
+                    <input type="text" id="otp-text" class="otp-text" name="otp-text" placeholder="Enter OTP">
+                    <button type="submit" class="otp-btn" id="otp-btn">VERIFY OTP</button>
+                </div>
+                <h5 id="OTPlabel" style="color: #79b751; display: none;">OTP sent to the email!</h5>
+                <button onclick="login()" class="login-btn">LOG IN</button>
+                <button onclick="loginWithGoogle()" class="google-login-btn">
+                    <img src="google_logo.png" alt="Google Logo" class="google-logo"> Login with Google
+                </button>  
+                <p>Don't have an account? <a onclick="redirectToPageSignUp()" id="signup-link" style="color: blue; cursor: pointer;">Sign Up</a></p>
               
                 <script>
-                        function redirectToPageSignUp() {
-                            window.location.href = 'signup.html';
-                        }
-                            /* Captcha */
-                        document.addEventListener("DOMContentLoaded", function() {
-                            var loginForm = document.getElementById("login-form");
+                    function redirectToPageSignUp() {
+                        window.location.href = 'signup.html';
+                    }
 
-                        loginForm.addEventListener("submit", function(event) {
-                            event.preventDefault(); 
+                    function login() {
+                        const username = document.getElementById('username').value;
+                        const password = document.getElementById('password').value;
 
-                        var captchaResponse = grecaptcha.getResponse(); 
-
-                        if (captchaResponse === "") {
-                            alert("Please complete the CAPTCHA.");
-                            return; 
-                        }
-
-                            loginForm.submit(); 
+                        fetch('login.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `username=${username}&password=${password}`
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status === 'success') {
+                                alert(data.message);
+                                window.location.href = 'dashboard.html'; // Redirect to dashboard or desired page after successful login
+                            } else {
+                                alert(data.message);
+                            }
                         });
-                    });
+                    }
+                </script>
 
-                    /*google auth*/
-                      const CLIENT_ID = '528324653123-49b7fujvppritgtna7sjbp75fo9qhmou.apps.googleusercontent.com';
-                    const REDIRECT_URI = 'http://cieloes-001-site1.etempurl.com/';
-                    const CLIENT_SECRET = '';
+                <script>
+                    // Google Auth script
+                    const CLIENT_ID = 'your-client-id';
+                    const REDIRECT_URI = 'your-redirect-uri';
     
-        function loginWithGoogle() {
-            window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=email%20profile&prompt=consent`;
-        }
+                    function loginWithGoogle() {
+                        window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=email%20profile&prompt=consent`;
+                    }
     
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const code = urlParams.get('code');
+                    window.onload = function() {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const code = urlParams.get('code');
     
-            if (code) {
-                exchangeCodeForToken(code);
-            }
-        }
+                        if (code) {
+                            exchangeCodeForToken(code);
+                        }
+                    }
     
-        function exchangeCodeForToken(code) {
-            fetch('/exchange-code', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ code: code })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => console.error('Error exchanging code for token:', error));
-        }
-
+                    function exchangeCodeForToken(code) {
+                        fetch('/exchange-code', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ code: code })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                        })
+                        .catch(error => console.error('Error exchanging code for token:', error));
+                    }
                 </script>
             </div>
         </div>
     </div>
 </section>
-</body>
 <script src="script/otp.js"></script>
+</body>
 </html>

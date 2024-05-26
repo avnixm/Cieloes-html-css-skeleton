@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="shop.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -77,13 +78,57 @@
         </div>
     </div>
     <div class="gems-container">
-    <img class="gems" src="images/icons/exp.svg">
-    <span class="gems-text"><b>350</b></span>
-</div>
-<div class="hart-container">
-    <img class="hart" src="images/icons/hearts.svg">
-    <span class="hart-text"><b>4</b></span>
-</div>
+        <img class="gems" src="images/icons/exp.svg">
+        <span class="gems-text"><b id="gems-count">0</b></span>
+    </div>
+    <div class="hart-container">
+        <img class="hart" src="images/icons/hearts.svg">
+        <span class="hart-text"><b id="hearts-count">0</b></span>
+    </div>
 
+    <script>
+        $(document).ready(function() {
+            // Fetch user's current gems and hearts
+            $.ajax({
+                url: 'get_user_data.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        $("#gems-count").text(response.gems);
+                        $("#hearts-count").text(response.hearts);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error: " + status + ": " + error);
+                    alert("An error occurred while fetching user data. Please try again.");
+                }
+            });
+
+            $(".custom-button").click(function() {
+                if (confirm("Are you sure you want to purchase Refill Hearts for 350 gems?")) {
+                    $.ajax({
+                        url: 'purchase.php',
+                        method: 'POST',
+                        dataType: 'json',
+                        success: function(response) {
+                            if (response.status === 'success') {
+                                $("#gems-count").text(response.gems);
+                                $("#hearts-count").text(response.hearts);
+                            } else {
+                                alert(response.message);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("AJAX Error: " + status + ": " + error);
+                            alert("An error occurred while processing your purchase. Please try again.");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

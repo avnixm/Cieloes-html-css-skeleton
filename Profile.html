@@ -77,8 +77,8 @@
                 <input type="text" id="p-email">
                 <button id="savebtn">Save</button>
                     
-                <form action="#" method="post"> 
-                    <button id="logoutbtn">Log out</button>
+                <form action="logout.php" method="post"> <!-- Assuming logout.php handles the logout process -->
+                    <button type="submit" id="logoutbtn">Log out</button>
                 </form>
             </div>
         
@@ -106,6 +106,14 @@
         </div>
     </div>        
 </div>   
+
+<script>
+    document.getElementById('logoutbtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        // Redirect to the index page after logging out
+        window.location.href = 'index.html'; // Update 'index.html' with the actual path of your index page
+    });
+</script>
 
     <script>
 
