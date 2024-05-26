@@ -107,31 +107,30 @@
         .button-result {
             color: var(--primary);
             background-color: var(--background);
-            display: flex;
+            display: none;
             justify-content: center; 
             flex-wrap: wrap;
             margin-top: 30px;
         }
 
         .show-results-btn {
-    display: none; 
-    background-color: var(--primary);
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 10px;
-    margin: 0 auto; 
-    margin-top: 20px;
-    width: 150px;
-    height: 50px; 
-    border-radius: 16px;
-    border: 1px solid var(--secondary);
-    border-bottom: 6px solid #248627bd;
-    color: #fff;
-    font-weight: bold;
-    text-align: center; 
-}
-
+            display: none; 
+            background-color: var(--primary);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 10px;
+            margin: 0 auto; 
+            margin-top: 20px;
+            width: 150px;
+            height: 50px; 
+            border-radius: 16px;
+            border: 1px solid var(--secondary);
+            border-bottom: 6px solid #248627bd;
+            color: #fff;
+            font-weight: bold;
+            text-align: center; 
+        }
 
         .results { 
             display: none; 
@@ -161,48 +160,77 @@
     </style>
     <script>
         let answers = [];
+        let resultsShown = false; // Add a flag to track if results have been shown
 
         function showNextQuestion(currentIndex, answer) {
+            console.log(`Question ${currentIndex + 1}: ${answer}`);
             answers[currentIndex] = answer;
             const questions = document.querySelectorAll('.question');
-            questions[currentIndex].classList.remove('active');
             if (currentIndex < questions.length - 1) {
+                questions[currentIndex].classList.remove('active');
                 questions[currentIndex + 1].classList.add('active');
             } else {
                 document.querySelector('.done-message').style.display = 'block';
-                document.querySelector('.show-results-btn').style.display = 'block';
+                questions[currentIndex].classList.remove('active');
+                showFinalResults(); // Automatically show results
             }
         }
 
         function showResults() {
             const correctAnswers = ['circle', 'square', 'triangle', 'rectangle', 'star', 'Heart', 'pentagon', 'hexagon', 'octagon', 'diamond'];
             let score = 0;
-            const resultsDiv = document.querySelector('.results');
-            resultsDiv.innerHTML = '<h2>Quiz Results</h2>';
             answers.forEach((answer, index) => {
-                const isCorrect = answer === correctAnswers[index];
-                if (isCorrect) {
+                if (answer === correctAnswers[index]) {
                     score++;
                 }
-                resultsDiv.innerHTML += `<p>Question ${index + 1}: ${isCorrect ? 'Correct' : 'Incorrect'}</p>`;
             });
+            const resultsDiv = document.querySelector('.results');
+            resultsDiv.innerHTML = `<h2>Quiz Results</h2>`;
             resultsDiv.innerHTML += `<h3>Your Score: ${score}/${answers.length}</h3>`;
+            console.log(`Final Score: ${score}`);
+            return score;
+        }
+
+        function submitResults(score) {
+            console.log("Submitting score:", score);
+
+            fetch('update-xp.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ xp: score })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('XP updated successfully!');
+                } else {
+                    alert('Failed to update XP: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
 
         function showFinalResults() {
-            document.querySelector('.results').style.display = 'block';
-            showResults();
+            if (!resultsShown) { // Check if results have already been shown
+                const score = showResults();
+                document.querySelector('.results').style.display = 'block';
+                document.querySelector('.button-result').style.display = 'flex'; // Show the button-result div
+                submitResults(score);
+                resultsShown = true; // Set the flag to true after showing results
+            } else {
+                alert('Results have already been shown and XP updated.');
+            }
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelector('.question').classList.add('active');
-            document.querySelector('.done-message').style.display = 'none';
-            document.querySelector('.show-results-btn').style.display = 'none';
-        });
+        function goToDashboard() {
+            window.location.href = '../dashboard.html'; // Change this to the actual path of your dashboard page
+        }
     </script>
 </head>
 <body>
-    <div class="question">
+    <div class="question active">
         <h1>What shape do you see?</h1>
         <img src="lesson images/Circle1.png" alt="Circle" class="shape-image">
         <div class="button-container">
@@ -257,7 +285,7 @@
         <img src="lesson images/Heart1.png" alt="Heart" class="shape-image">
         <div class="button-container">
             <div class="button" onclick="showNextQuestion(5, 'circle')">Circle</div>
-            <div class="button" onclick="showNextQuestion(5, 'Heart')">Oval</div>
+            <div class="button" onclick="showNextQuestion(5, 'Heart')">Heart</div>
             <div class="button" onclick="showNextQuestion(5, 'triangle')">Triangle</div>
             <div class="button" onclick="showNextQuestion(5, 'rectangle')">Rectangle</div>
         </div>
@@ -302,12 +330,11 @@
             <div class="button" onclick="showNextQuestion(9, 'rectangle')">Rectangle</div>
         </div>
     </div>
-    <div class="done-message center">
-        <h2>You've completed the quiz!</h2>
-        <button class="button show-results-btn center" onclick="showFinalResults()">Show Results</button>
-    </div>
-    <div class="results">
-        <h2>Quiz Results</h2>
+
+    <p class="done-message">You've answered all the questions. See your score below.</p>
+    <div class="results"></div>
+    <div class="button-result">
+        <button class="button" onclick="goToDashboard()">Go to Dashboard</button>
     </div>
 </body>
 </html>
