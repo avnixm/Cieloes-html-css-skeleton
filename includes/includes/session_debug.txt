@@ -1,0 +1,6 @@
+Array
+(
+    [last_regeneration] => 1716774130
+    [user_id] => 17
+    [user_username] => try
+)
