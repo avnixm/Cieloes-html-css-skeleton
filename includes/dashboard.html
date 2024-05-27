@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn</title>
+    <link rel="shortcut icon" type="x-icon" href="images/faks.png">
+    <link rel="stylesheet" href="css/homepage.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="logo-container">
+                <img src="images/wordwiselogo.png" alt="Logo">
+                <h2>CIELOES</h2>
+                <hr>
+            </div>
+            <ul>
+                <li class="active"><a href="dashboard.html"><i class="fas fa-book"></i> Learn</a></li>
+                <li><a href="#"><i class="fas fa-pen"></i> Practice</a></li>
+                <li><a href="leaderboards.php" id="leaderboard-btn"><i class="fas fa-trophy"></i> Leaderboards</a></li>
+                <li><a href="shop.html"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+                <li><a href="Profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            </ul> 
+        </div>
+                    
+        <div class="main_content">
+            <div class="search_box">
+                <input class="search-field" type="text" placeholder="Search for words...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="lesson_container">
+                <div class="spaceholder">  
+                </div>
+                <div class="text_container">
+                    <h2>Section 1</h2>
+                    <h2>Use pronouns, make questions.</h2>
+                </div>
+                <div class="flex_container">
+                    <div class="unit_box">
+                        <button class="unit_btn" id="btn1"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                        <button class="unit_btn" id="btn2"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                        <button class="unit_btn" id="btn3"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                        <button class="unit_btn" id="btn4"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                        <button class="unit_btn" id="btn5"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                        <button class="unit_btn"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                        <button class="unit_btn"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                        <button class="unit_btn"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                        <button class="unit_btn"><img src="images/icons/star.svg" alt="Star Icon"></button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text_container_2">
+                        <h2>Section 2</h2>
+                        <h2>Identify the predicate, specify its use in the house..</h2>
+                    </div>
+                    <div class="flex_container">
+                        <div class="unit_box">
+                            <button class="unit_btn">1</button>
+                            <button class="unit_btn">2</button>
+                            <button class="unit_btn">3</button>
+                            <button class="unit_btn">4</button>
+                            <button class="unit_btn">5</button>
+                            <button class="unit_btn">6</button>
+                            <button class="unit_btn">7</button>
+                            <button class="unit_btn">8</button>
+                            <button class="unit_btn">9</button>
+                        </div>
+                    </div>
+                </div> 
+            </div>  
+        </div>
+        
+        <div class="xp_hearts">
+            <div class="xp">
+                <img src="images/icons/exp.svg">
+                <h2 id="xp-count">0</h2>
+            </div>
+            <div class="hearts">
+                <img src="images/icons/hearts.svg">
+                <h2 id="hearts-count">0</h2>
+            </div>
+        </div>
+        
+        <div class="container">
+            <h3 style="text-align: center; padding: 0px 0px 15px 0px;">#WORD-OF-THE-DAY</h3>
+            <div class="word" id="word"></div>
+            <div class="audio-controls">
+                <i class="fas fa-volume-up" id="playButton"></i>
+                <audio id="audio" style="display: none;">
+                    <source src="" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="details" id="details">
+                <p><span id="textPronunciation"></span></p>
+                <p><span id="partOfSpeech"></span></p>
+                <p class="italic">Definition:</p>
+                <span id="definition"></span>
+                <p class="italic" style="margin-top: 10px;">Synonyms:</p>
+                <p id="synonymsList"></p>
+                <p class="italic">Examples:</p>
+                <ul id="examples"></ul>
+            </div>              
+        </div>
+    </div>
+    
+    <script src="script/script.js"></script>
+    <script src="script/word_of_the_day.js"></script>  
+    
+    <script>
+        $(document).ready(function() {
+            // Fetch user's current gems and hearts
+            $.ajax({
+                url: 'includes/get_user_data.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        $("#xp-count").text(response.user.user_exp);
+                        $("#hearts-count").text(response.user.user_hearts);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error: " + status + ": " + error);
+                    alert("An error occurred while fetching user data. Please try again.");
+                }
+            });
+
+            // Function to deduct one heart
+            function deductHeartAndStartLesson(lessonUrl) {
+                $.ajax({
+                    url: 'shop_php/deduct_heart.php',
+                    method: 'POST',
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            $("#hearts-count").text(response.user_hearts);
+                            window.location.href = lessonUrl;
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("AJAX Error: " + status + ": " + error);
+                        alert("An error occurred while deducting a heart. Please try again.");
+                    }
+                });
+            }
+
+            // Lesson button click handlers
+            $('#btn1').click(function() {
+                deductHeartAndStartLesson('lessons/lesson2.html');
+            });
+
+            $('#btn2').click(function() {
+                deductHeartAndStartLesson('lessons/lesson3.html');
+            });
+
+            $('#btn3').click(function() {
+                deductHeartAndStartLesson('lessons/lesson4.html');
+            });
+        });
+    </script>
+</body>
+</html>
