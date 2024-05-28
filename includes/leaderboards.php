@@ -46,7 +46,7 @@
                                 $servername = "localhost";
                                 $username = "root";
                                 $password = "";
-                                $dbname = "g2cieloes";  // Updated to the correct database name
+                                $dbname = "g2cieloes";  
 
                                 // Create connection
                                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -57,7 +57,7 @@
                                 }
 
                                 // SQL query to fetch leaderboard data
-                                $sql = "SELECT rank, username, user_exp, reward FROM leaderboard ORDER BY rank ASC";
+                                $sql = "SELECT rank, username, user_exp, reward FROM leaderboards ORDER BY rank ASC";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
