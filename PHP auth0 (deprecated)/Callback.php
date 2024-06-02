@@ -17,7 +17,7 @@ if ($userInfo) {
     // Example: Store user information in session and redirect to dashboard
     session_start();
     $_SESSION['user'] = $userInfo;
-    header('Location: .php');
+    header('Location: dashboard.php');
     exit();
 } else {
     // Authentication failed or invalid callback
