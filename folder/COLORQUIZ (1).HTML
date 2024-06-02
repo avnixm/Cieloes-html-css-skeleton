@@ -4,6 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Quiz</title>
+    <link rel="stylesheet" href="allyssa.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="quiz">
+            <div class="question1">
+                <p>1. What is the color of the sky on a clear day?</p>
+                <ul class="options">
+                    <li><button class="option">Blue</button></li>
+                    <li><button class="option">Green</button></li>
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Yellow</button></li>
+                </ul>
+            </div>
+            <script>
+                // Get the button elements
+                var buttons = document.querySelectorAll(".option");
+
+                // Add an event listener to each button
+                buttons.forEach(function(button) {
+                    button.addEventListener("click", function() {
+                        // Check if the button is the correct answer
+                        if (button.innerText === "Blue") {
+                            // If it is, move to the next question
+                            nextQuestion();
+                        } else {
+                            // If it isn't, display an error message
+                            alert("Sorry, that is not the correct answer.");
+                        }
+                    });
+                });
+
+                // Function to move to the next question
+                function nextQuestion() {
+                    // Get the current question number
+                    var currentQuestionNumber = parseInt(document.querySelector("#quiz .question").getAttribute("data-number"));
+
+                    // Increment the question number
+                    currentQuestionNumber++;
+
+                    // Update the question number attribute
+                    document.querySelector("#quiz .question").setAttribute("data-number", currentQuestionNumber);
+
+                    // Hide the current question
+                    document.querySelector("#quiz .question").style.display = "none";
+
+                    // Show the next question
+                    document.querySelector("#quiz .question:nth-child(" + currentQuestionNumber + ")").style.display = "block";
+                }
+            </script> 
+            <div class="question2">
+                <p>2. What color are bananas?</p>
+                <ul class="options">
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Blue</button></li>
+                    <li><button class="option">Yellow</button></li>
+                    <li><button class="option">Green</button></li>
+                </ul>
+            </div>
+            <div class="question3">
+                <p>3. What color is an apple?</p>
+                <ul class="options">
+                    <li><button class="option">Purple</button></li>
+                    <li><button class="option">Orange</button></li>
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Blue</button></li>
+                </ul>
+            </div>
+            <div class="question4">
+                <p>4. What color is grass?</p>
+                <ul class="options">
+                    <li><button class="option">Green</button></li>
+                    <li><button class="option">Blue</button></li>
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Yellow</button></li>
+                </ul>
+            </div>
+            <div class="question5">
+                <p>5. What color is a lemon?</p>
+                <ul class="options">
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Yellow</button></li>
+                    <li><button class="option">Blue</button></li>
+                    <li><button class="option">Green</button></li>
+                </ul>
+            </div>
+            <div class="question6">
+                <p>6. What color is an orange?</p>
+                <ul class="options">
+                    <li><button class="option">Orange</button></li>
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Blue</button></li>
+                    <li><button class="option">Yellow</button></li>
+                </ul>
+            </div>
+            <div class="question7">
+                <p>7. What color is a strawberry?</p>
+                <ul class="options">
+                    <li><button class="option">Purple</button></li>
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Green</button></li>
+                    <li><button class="option">Yellow</button></li>
+                </ul>
+            </div>
+            <div class="question8">
+                <p>8. What color is the sun?</p>
+                <ul class="options">
+                    <li><button class="option">Yellow</button></li>
+                    <li><button class="option">Green</button></li>
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Blue</button></li>
+                </ul>
+            </div>
+            <div class="question9">
+                <p>9. What color is a pumpkin?</p>
+                <ul class="options">
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Yellow</button></li>
+                    <li><button class="option">Blue</button></li>
+                    <li><button class="option">Orange</button></li>
+                </ul>
+            </div>
+            <div class="question10">
+                <p>10. What color are blueberries?</p>
+                <ul class="options">
+                    <li><button class="option">Red</button></li>
+                    <li><button class="option">Yellow</button></li>
+                    <li><button class="option">Blue</button></li>
+                    <li><button class="option">Green</button></li>
+                </ul>
+            </div>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script src="allyssa.js"></script>
+</body>
+</html>
+ html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
